@@ -79,7 +79,9 @@ app.post("/api/chat", async (req, res) => {
     res.status(500).json({ error: "Server error. Please try again." });
   }
 });
-
+app.get("/", (req, res) => {
+  res.send("ClinicCare AI is running successfully!");
+});
 app.get("/health", (req, res) => res.json({ ok: true }));
 
 app.listen(PORT, () => {
