@@ -79,8 +79,55 @@ app.post("/api/chat", async (req, res) => {
     res.status(500).json({ error: "Server error. Please try again." });
   }
 });
-app.get("/", (req, res) => {
-  res.send("ClinicCare AI is running successfully!");
+app.get('/', (req, res) => {
+    res.send(`
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>ClinicCare AI</title>
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    background-color: #f4f7f6;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 100vh;
+                    margin: 0;
+                }
+                .card {
+                    background: white;
+                    padding: 40px;
+                    border-radius: 12px;
+                    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+                    text-align: center;
+                    max-width: 400px;
+                }
+                .status {
+                    display: inline-block;
+                    background-color: #28a745;
+                    color: white;
+                    padding: 6px 12px;
+                    border-radius: 20px;
+                    font-size: 14px;
+                    margin-top: 15px;
+                }
+                h1 { color: #333; margin-bottom: 10px; }
+                p { color: #666; }
+            </style>
+        </head>
+        <body>
+            <div class="card">
+                <h1>ClinicCare AI 🩺</h1>
+                <p>AI Voice & WhatsApp Assistant for Doctor Clinics</p>
+                <div class="status">● System Running Successfully</div>
+            </div>
+        </body>
+        </html>
+    `);
+});
 });
 app.get("/health", (req, res) => res.json({ ok: true }));
 
