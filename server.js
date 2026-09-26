@@ -79,10 +79,10 @@ app.post("/api/chat", async (req, res) => {
     res.status(500).json({ error: "Server error. Please try again." });
   }
 });
-
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "index.html"));
+  res.sendFile(path.join(__dirname, "index.html"));
 });
+
 
 app.get("/health", (req, res) => res.json({ ok: true }));
 
